@@ -1,16 +1,20 @@
 "use client";
 
+import { useState, useEffect, useRef } from "react";
 import { FloatingNav } from "@/components/ui/FloatingNav";
-import { FaHome, FaUser, FaCode, FaBriefcase, FaEnvelope } from "react-icons/fa";
+import { FaHome, FaUser, FaCode, FaBriefcase, FaEnvelope, FaMoon, FaSun, FaArrowUp, FaFileDownload } from "react-icons/fa";
 import Hero from "@/components/Hero";
 import Grid from "@/components/Grid";
-import Skills from "@/components/Skills";
+import Skills from "@/components/skills"; // Corrected import
 import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
 import { motion } from "framer-motion";
-import { useRef } from "react";
 
 export default function Home() {
+  const [darkMode, setDarkMode] = useState(true);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const [showResumeModal, setShowResumeModal] = useState(false); // State for modal
   const aboutRef = useRef(null);
   const skillsRef = useRef(null);
   const experienceRef = useRef(null);
@@ -25,85 +29,120 @@ export default function Home() {
     { name: "Contact", link: "#contact", icon: <FaEnvelope /> },
   ];
 
+  // Theme Toggle
+  const toggleTheme = () => {
+    setDarkMode(!darkMode);
+    document.documentElement.classList.toggle("dark");
+  };
+
+  // Scroll Progress and Scroll-to-Top Visibility
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (window.scrollY / totalHeight) * 100;
+      setScrollProgress(progress);
+      setShowScrollTop(window.scrollY > 300);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // Resume Modal Toggle
+  const toggleResumeModal = () => {
+    setShowResumeModal(!showResumeModal);
+  };
+
   return (
-    <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
+    <main className={`relative flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5 ${darkMode ? "dark bg-black-100" : "bg-white"} transition-colors duration-500`}>
+      <div className="fixed top-0 left-0 w-full h-1 bg-blue-500 z-50" style={{ width: `${scrollProgress}%` }} />
       <div className="max-w-7xl w-full">
         <FloatingNav navItems={navItems} />
-        
-        {/* Hero Section */}
-        <section id="hero">
-          <Hero />
-        </section>
-
-        {/* About Section */}
-        <motion.section
-          id="about"
-          ref={aboutRef}
-          className="py-20"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+        <motion.button
+          onClick={toggleTheme}
+          className="fixed top-4 right-4 p-2 bg-muted rounded-full z-50"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
         >
+          {darkMode ? <FaSun className="text-yellow-400" /> : <FaMoon className="text-gray-600" />}
+        </motion.button>
+
+        {showScrollTop && (
+          <motion.button
+            onClick={scrollToTop}
+            className="fixed bottom-4 right-4 p-3 bg-blue-500 text-white rounded-full z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <FaArrowUp />
+          </motion.button>
+        )}
+
+        <section id="hero"><Hero darkMode={darkMode} /></section>
+        <motion.section id="about" ref={aboutRef} className="py-20" initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
           <h2 className="heading">About Me</h2>
-          <p className="text-center text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Hi, I’m Eze Anyaegbu, a Computer Science student at Drexel University. I’m passionate about software development and AI, currently working on B.A.G.S, a recycling app to detect plastic bags. Fun fact: I built a tool to help students find lost items on campus!
-          </p>
+          <div className="flex justify-center mt-6">
+            <motion.div
+              onClick={toggleResumeModal}
+              className="flex flex-col items-center cursor-pointer"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <FaFileDownload className="text-4xl text-blue-500" title="View My Resume" />
+              <span className="mt-2 text-muted-foreground">My Resume</span>
+            </motion.div>
+          </div>
         </motion.section>
 
-        {/* Skills Section */}
-        <motion.section
-          id="skills"
-          ref={skillsRef}
-          className="py-20"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
+        {/* Resume Modal */}
+        {showResumeModal && (
+          <motion.div
+            className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={toggleResumeModal}
+          >
+            <motion.div
+              className="bg-white dark:bg-black-100 p-4 rounded-lg w-11/12 md:w-3/4 lg:w-1/2 max-h-[80vh] overflow-auto"
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
+              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+            >
+              <button
+                onClick={toggleResumeModal}
+                className="absolute top-2 right-2 text-gray-600 dark:text-gray-300"
+              >
+                ✕
+              </button>
+              <iframe
+                src="https://drive.google.com/file/d/10w1SwQcXwJtwYw8oN4z5VF4QfKvob_KF/preview"
+                className="w-full h-[70vh]"
+                allow="autoplay"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+
+        <motion.section id="skills" ref={skillsRef} className="py-20" initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
           <Skills />
         </motion.section>
-
-        {/* Experience Section */}
-        <motion.section
-          id="experience"
-          ref={experienceRef}
-          className="py-20"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
+        <motion.section id="experience" ref={experienceRef} className="py-20" initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
           <Experience />
         </motion.section>
-
-        {/* Projects Section */}
-        <motion.section
-          id="projects"
-          ref={projectsRef}
-          className="py-20"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
+        <motion.section id="projects" ref={projectsRef} className="py-20" initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
           <Grid />
         </motion.section>
-
-        {/* Contact Section */}
-        <motion.section
-          id="contact"
-          ref={contactRef}
-          className="py-20"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
+        <motion.section id="contact" ref={contactRef} className="py-20" initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
           <Contact />
         </motion.section>
 
-        {/* Footer */}
         <footer className="py-10 text-center text-muted-foreground">
           <p>© 2025 Eze Anyaegbu. Built with Next.js & Tailwind CSS.</p>
           <a href="https://linkedin.com/in/ezeanyaegbu" className="text-blue-300 hover:underline">LinkedIn</a>
