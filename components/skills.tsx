@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaPython, FaDocker } from "react-icons/fa";
-import { SiMongodb, SiCplusplus,  } from "react-icons/si";
+import { SiMongodb, SiCplusplus, SiMysql } from "react-icons/si";
 
 const skills = [
   { name: "HTML5", icon: <FaHtml5 className="text-orange-500" /> },
@@ -12,6 +12,7 @@ const skills = [
   { name: "Python", icon: <FaPython className="text-blue-600" /> },
   { name: "C++", icon: <SiCplusplus className="text-blue-700" /> },
   { name: "Docker", icon: <FaDocker className="text-blue-400" /> },
+  { name: "MySQL", icon: <SiMysql className="text-blue-500" /> }, // Added MySQL
 ];
 
 const Skills = () => {
