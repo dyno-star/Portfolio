@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+I assume you want me to update the README for your portfolio project based on the latest changes to reflect its features and setup accurately. Since you’ve been sharing your GitHub profile README and working on a Next.js portfolio, I’ll create a new README tailored to this project (`Portfolio` repository), incorporating details from your GitHub profile and the enhancements we’ve made (e.g., full-coverage grid with spotlight, resume popup, contact buttons, light/dark mode visibility).
 
-## Getting Started
+Here’s the updated README:
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Eze Anyaegbu's Portfolio
+
+Welcome to my personal portfolio built with Next.js and Tailwind CSS! This project showcases my skills, projects, and experience as a Computer Science student at Drexel University, with a focus on software development and AI.
+
+---
+
+## 🌟 Features
+
+- **Responsive Design**: Fully responsive layout optimized for desktop, tablet, and mobile devices.
+- **Dark/Light Mode**: Toggle between dark and light themes with visible text in both modes.
+- **Interactive Sections**:
+  - **Hero**: Dynamic introduction with a spotlight effect.
+  - **About Me**: Minimalist section with a resume popup (viewable via Google Drive iframe).
+  - **Skills**: Displays my tech stack (HTML5, JavaScript, CSS3, React, Node.js, MongoDB, Python, C++, C#).
+  - **Experience**: Highlights ongoing work like B.A.G.S.
+  - **Projects**: Full-width grid with a spotlight effect showcasing key repositories (B.A.G.S, StoryTelling-AI, Recipe).
+  - **Contact**: Interactive buttons for LinkedIn, Email, and GitHub.
+- **Resume Popup**: Click "My Resume" to view my resume in a modal without downloading.
+- **Smooth Animations**: Powered by Framer Motion for a polished user experience.
+- **Scroll Progress**: Visual indicator at the top of the page.
+
+---
+
+## 💻 Tech Stack
+
+- **Frontend**: Next.js, React, TypeScript, Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: React Icons
+- **Deployment**: Configured for Vercel (or your preferred platform)
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v18.x or later)
+- npm or yarn
+
+### Installation
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/dyno-star/Portfolio.git
+   cd Portfolio
+   ```
+
+2. **Install Dependencies**:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Run Locally**:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+   Open `http://localhost:3000` in your browser.
+
+4. **Build for Production**:
+   ```bash
+   npm run build
+   npm run start
+   # or
+   yarn build
+   yarn start
+   ```
+
+---
+
+## 📂 Project Structure
+
+```
+Portfolio/
+├── components/         # React components (Hero, Grid, Skills, etc.)
+│   ├── ui/            # Reusable UI components (FloatingNav, MagicButton, Spotlight)
+├── app/               # Next.js app directory (page.tsx)
+├── public/            # Static assets (e.g., resume PDF if hosted locally)
+├── styles/            # Global styles (if any)
+├── README.md          # This file
+├── package.json       # Dependencies and scripts
+└── tsconfig.json      # TypeScript configuration
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## 👯 Collaboration
 
-To learn more about Next.js, take a look at the following resources:
+I’m open to collaborating on:
+- Open-source projects
+- AI applications
+- Web development projects
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🙏 Acknowledgments
 
-## Deploy on Vercel
+- Built with inspiration from Next.js and Tailwind CSS communities.
+- Spotlight and animation effects powered by Framer Motion.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+© 2025 Eze Anyaegbu
+
