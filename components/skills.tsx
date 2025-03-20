@@ -15,7 +15,7 @@ const skills = [
   { name: "MySQL", icon: <SiMysql className="text-blue-500" /> }, // Added MySQL
 ];
 
-const Skills = () => {
+const Skills = ({ darkMode }: { darkMode: boolean }) => {
   return (
     <section id="skills">
       <h2 className="heading">Skills</h2>
