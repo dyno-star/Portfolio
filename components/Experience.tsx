@@ -33,7 +33,7 @@ const experiences = [
   },
 ];
 
-const Experience = () => {
+const Experience = ({ darkMode }: { darkMode: boolean }) => {
   return (
     <section id="experience">
       <h2 className="heading">Experience</h2>
