@@ -2,36 +2,15 @@ import { BentoGrid, BentoGridItem } from "./ui/BentoGrid";
 import { motion } from "framer-motion";
 
 const projects = [
-  {
-    id: 1,
-    title: "B.A.G.S",
-    description: "A recycling app to detect plastic bags and improve sorting.",
-    link: "https://github.com/dyno-star", 
-  },
-  {
-    id: 2,
-    title: "Stock Dashboard",
-    description: "Interactive dashboard with real-time stock updates using React and FastAPI.",
-    link: "https://github.com/dyno-star/Portfolio", 
-  },
-  {
-    id: 4,
-    title: "StoryTelling-AI",
-    description: "AI-powered storytelling application.",
-    link: "https://github.com/dyno-star/StoryTelling-AI",
-  },
-  {
-    id: 5,
-    title: "Recipe",
-    description: "A Python-based recipe management tool.",
-    link: "https://github.com/dyno-star/Recipe",
-  },
+  { id: 1, title: "B.A.G.S", description: "A recycling app to detect plastic bags.", link: "https://github.com/dyno-star" },
+  { id: 2, title: "StoryTelling-AI", description: "AI-powered storytelling app.", link: "https://github.com/dyno-star/StoryTelling-AI" },
+  { id: 3, title: "Recipe", description: "Recipe management tool.", link: "https://github.com/dyno-star/Recipe" },
 ];
 
-const Grid = () => {
+const Grid = ({ darkMode }: { darkMode: boolean }) => {
   return (
     <section id="projects">
-      <h2 className="heading">My Projects</h2>
+      <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white">My Projects</h2>
       <BentoGrid className="mt-10">
         {projects.map((item) => (
           <motion.div
@@ -41,11 +20,11 @@ const Grid = () => {
           >
             <BentoGridItem
               id={item.id}
-              title={item.title}
-              description={item.description}
+              title={<span className="text-gray-900 dark:text-white">{item.title}</span>}
+              description={<span className="text-gray-600 dark:text-gray-300">{item.description}</span>}
               className="hover:bg-blue-100/10 transition-colors duration-300"
               header={
-                <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-blue-300 underline">
+                <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 dark:text-blue-300 underline">
                   View on GitHub
                 </a>
               }
