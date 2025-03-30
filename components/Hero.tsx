@@ -13,12 +13,12 @@ const Hero = ({ darkMode }: { darkMode: boolean }) => {
       <div className="flex justify-center relative my-20 z-10">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
           <h2 className={`uppercase tracking-widest text-xs text-center ${darkMode ? "text-blue-300" : "text-blue-600"} max-w-80`}>
-            Dynamic Web with Next.js
+          Software Development & AI Enthusiast
           </h2>
           <TextGenerateEffect
             className={`text-center text-[40px] md:text-5xl lg:text-6xl ${darkMode ? "text-white" : "text-gray-900"}`}
-            words="Transforming Concepts into Seamless User Experiences"
-          />
+            words="Building Solutions with Code"
+            />
           <p className={`text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl ${darkMode ? "text-gray-300" : "text-gray-700"}`}>
             Hi, I'm Eze, a Computer Science Student
           </p>
