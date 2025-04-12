@@ -118,7 +118,7 @@ export default function Home() {
                 ✕
               </button>
               <iframe
-                src="https://drive.google.com/file/d/10w1SwQcXwJtwYw8oN4z5VF4QfKvob_KF/preview"
+                src="https://drive.google.com/file/d/1OxN2Cka6uvs9K7qPGHEAYJLyd_aiuzuD/preview"
                 className="w-full h-[70vh]"
                 allow="autoplay"
               />
