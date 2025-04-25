@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const projects = [
   { id: 1, title: "B.A.G.S", description: "A recycling app to detect plastic bags.", link: "https://github.com/dyno-star/Recycling-AI" },
   { id: 2, title: "StoryTelling-AI", description: "AI-powered storytelling app.", link: "https://github.com/dyno-star/StoryTelling-AI" },
-  { id: 3, title: "Recipe", description: "Recipe management tool.", link: "https://github.com/dyno-star/Recipe" },
+  { id: 3, title: "Find IT", description: "Lost and found site to help students find their lost items..", link: "https://github.com/dyno-star/Find-It" },
 ];
 
 const Grid = ({ darkMode }: { darkMode: boolean }) => {
