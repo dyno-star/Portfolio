@@ -12,13 +12,13 @@ const experiences = [
     ],
   },
   {
-    title: "Software Engineer Residence",
+    title: "Software Engineer in Residence",
     company: "HeadStarter",
-    duration: "September 2025 - Present",
+    duration: "September 2025 – Present",
     achievements: [
-      "Optimized database performance through SQL query tuning, reducing latency by 150ms per request.",
-      "Implemented CI/CD pipelines using GitHub Actions, reducing manual errors by 40%.",
-      "Collaborated with frontend team to enhance user experience metrics by 25%.",
+      "Optimized database performance through advanced SQL query tuning, reducing average request latency by 150ms.",
+      "Designed and implemented CI/CD pipelines using GitHub Actions, cutting deployment errors by 40% and accelerating release cycles.",
+      "Collaborated cross-functionally with frontend engineers to improve core user experience metrics by 25%.",
     ],
   },
   {
