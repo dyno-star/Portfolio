@@ -12,9 +12,9 @@ const experiences = [
     ],
   },
   {
-    title: "Software Engineer Intern",
-    company: "App Technologies",
-    duration: "November 2024 - January 2025",
+    title: "Software Engineer Residence",
+    company: "HeadStarter",
+    duration: "September 2025 - Present",
     achievements: [
       "Optimized database performance through SQL query tuning, reducing latency by 150ms per request.",
       "Implemented CI/CD pipelines using GitHub Actions, reducing manual errors by 40%.",
