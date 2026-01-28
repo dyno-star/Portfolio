@@ -141,7 +141,6 @@ export default function Home() {
 
         <footer className="py-10 text-center text-gray-600 dark:text-gray-300">
           <p>© 2025 Eze Anyaegbu. Built with Next.js & Tailwind CSS.</p>
-          <a href="https://linkedin.com/in/ezeanyaegbu" className="text-blue-500 dark:text-blue-300 hover:underline">LinkedIn</a>
         </footer>
       </div>
     </main>
