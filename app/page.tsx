@@ -29,10 +29,24 @@ export default function Home() {
     { name: "Contact", link: "#contact", icon: <FaEnvelope /> },
   ];
 
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-    document.documentElement.classList.toggle("dark");
-  };
+  // Restore the visitor's last theme choice (falls back to dark).
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("theme");
+      if (saved === "light") setDarkMode(false);
+    } catch {}
+  }, []);
+
+  // Keep the <html> class in sync with the state, so Tailwind's dark: styles
+  // are on only in dark mode (toggling the class used to invert it).
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", darkMode);
+    try {
+      localStorage.setItem("theme", darkMode ? "dark" : "light");
+    } catch {}
+  }, [darkMode]);
+
+  const toggleTheme = () => setDarkMode((d) => !d);
 
   useEffect(() => {
     const handleScroll = () => {
