@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { FloatingNav } from "@/components/ui/FloatingNav";
-import { FaHome, FaUser, FaCode, FaBriefcase, FaEnvelope, FaMoon, FaSun, FaArrowUp, FaFileDownload } from "react-icons/fa";
+import { FaHome, FaUser, FaCode, FaBriefcase, FaEnvelope, FaMoon, FaSun, FaArrowUp, FaArrowDown, FaFileDownload } from "react-icons/fa";
 import Hero from "@/components/Hero";
 import Grid from "@/components/Grid";
 import Skills from "@/components/skills";
@@ -83,7 +83,21 @@ export default function Home() {
         <section id="hero"><Hero darkMode={darkMode} /></section>
         <motion.section id="about" ref={aboutRef} className="py-20" initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white">About Me</h2>
-          <div className="flex justify-center mt-6">
+          <div className="mx-auto mt-6 max-w-3xl space-y-4 text-center text-gray-700 dark:text-gray-300 md:text-lg">
+            <p>
+              I&apos;m a Computer Science student at <span className="font-semibold text-gray-900 dark:text-white">Drexel University</span>, minoring
+              in Finance and Mathematics, graduating in June 2028. Most recently I was a Software Engineer Co-op at Penn Mutual Life
+              Insurance, building React and Next.js features for insurance forms and search.
+            </p>
+            <p>
+              I build full-stack web apps and machine learning projects, and I&apos;m a member of the National Society of Black Engineers
+              (NSBE) and Drexel IEEE.
+            </p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+              Coursework: Object-Oriented Programming · Data Structures &amp; Algorithms · Differential Equations
+            </p>
+          </div>
+          <div className="flex justify-center gap-10 mt-8">
             <motion.div
               onClick={toggleResumeModal}
               className="flex flex-col items-center cursor-pointer"
@@ -91,8 +105,18 @@ export default function Home() {
               whileTap={{ scale: 0.9 }}
             >
               <FaFileDownload className="text-4xl text-blue-500" title="View My Resume" />
-              <span className="mt-2 text-gray-600 dark:text-gray-300">My Resume</span>
+              <span className="mt-2 text-gray-600 dark:text-gray-300">View Resume</span>
             </motion.div>
+            <motion.a
+              href="/Eze-Anyaegbu-Resume.pdf"
+              download
+              className="flex flex-col items-center"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <FaArrowDown className="text-4xl text-blue-500" title="Download My Resume" />
+              <span className="mt-2 text-gray-600 dark:text-gray-300">Download PDF</span>
+            </motion.a>
           </div>
         </motion.section>
 
@@ -105,7 +129,7 @@ export default function Home() {
             onClick={toggleResumeModal}
           >
             <motion.div
-              className="bg-white dark:bg-black-100 p-4 rounded-lg w-11/12 md:w-3/4 lg:w-1/2 max-h-[80vh] overflow-auto"
+              className="relative bg-white dark:bg-black-100 p-4 pt-10 rounded-lg w-11/12 md:w-3/4 lg:w-1/2 max-h-[80vh] overflow-auto"
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
@@ -118,7 +142,8 @@ export default function Home() {
                 ✕
               </button>
               <iframe
-                src="https://drive.google.com/file/d/1367XIUIarqXQcSUXkU27d1H8HtcnBQkv/view?usp=drive_link"
+                src="/Eze-Anyaegbu-Resume.pdf"
+                title="Eze Anyaegbu resume"
                 className="w-full h-[70vh]"
                 allow="autoplay"
               />
@@ -140,7 +165,7 @@ export default function Home() {
         </motion.section>
 
         <footer className="py-10 text-center text-gray-600 dark:text-gray-300">
-          <p>© 2025 Eze Anyaegbu. Built with Next.js & Tailwind CSS.</p>
+          <p>© {new Date().getFullYear()} Eze Anyaegbu. Built with Next.js & Tailwind CSS.</p>
         </footer>
       </div>
     </main>

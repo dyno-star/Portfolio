@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Eze's Portfolio",
-  description: "Portfolio for Eze Anyaegbu",
+  description: "Eze Anyaegbu: Computer Science student at Drexel University and software engineer building full-stack and AI applications.",
 };
 
 export default function RootLayout({
