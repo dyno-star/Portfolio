@@ -10,6 +10,7 @@ const Hero = ({ darkMode }: { darkMode: boolean }) => {
       <div className={`absolute inset-0 h-full w-full ${darkMode ? "bg-gray-900 bg-grid-white/[0.03]" : "bg-gray-100 bg-grid-gray-300/[0.2]"} flex items-center justify-center`}>
         <div className={`absolute pointer-events-none inset-0 flex items-center justify-center ${darkMode ? "bg-gray-900 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" : "bg-gray-100 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,gray)]"}`} />
       </div>
+      <div className={`pointer-events-none absolute inset-x-0 bottom-0 h-40 z-[1] bg-gradient-to-b from-transparent ${darkMode ? "to-black-100" : "to-white"}`} />
       <div className="flex justify-center relative my-20 z-10">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
           <h2 className={`uppercase tracking-widest text-xs text-center ${darkMode ? "text-blue-300" : "text-blue-600"} max-w-80`}>

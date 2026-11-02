@@ -80,7 +80,7 @@ export default function Home() {
           </motion.button>
         )}
 
-        <section id="hero"><Hero darkMode={darkMode} /></section>
+        <section id="hero" className="relative left-1/2 w-screen -translate-x-1/2"><Hero darkMode={darkMode} /></section>
         <motion.section id="about" ref={aboutRef} className="py-20" initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white">About Me</h2>
           <div className="mx-auto mt-6 max-w-3xl space-y-4 text-center text-gray-700 dark:text-gray-300 md:text-lg">
