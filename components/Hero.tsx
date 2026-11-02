@@ -20,7 +20,7 @@ const Hero = ({ darkMode }: { darkMode: boolean }) => {
             words="Building Solutions with Code"
             />
           <p className={`text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl ${darkMode ? "text-gray-300" : "text-gray-700"}`}>
-            Hi, I'm Eze, a Computer Science Student
+            Hi, I&apos;m Eze, a Computer Science Student
           </p>
           <motion.a href="#projects" whileHover={{ scale: 1.05, rotate: 2 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 300 }}>
             <MagicButton title="Show my work" icon={<span>🔍</span>} position="center" />
