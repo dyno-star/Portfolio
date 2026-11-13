@@ -9,6 +9,9 @@ import Skills from "@/components/skills";
 import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+
+const ResumeViewer = dynamic(() => import("@/components/ResumeViewer"), { ssr: false });
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
@@ -155,12 +158,7 @@ export default function Home() {
               >
                 ✕
               </button>
-              <iframe
-                src="/Eze-Anyaegbu-Resume.pdf"
-                title="Eze Anyaegbu resume"
-                className="w-full h-[70vh]"
-                allow="autoplay"
-              />
+              <ResumeViewer file="/Eze-Anyaegbu-Resume.pdf" />
             </motion.div>
           </motion.div>
         )}
